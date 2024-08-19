@@ -52,7 +52,7 @@ router.post('/search', async (req, res) => {
 
     // console.log(req.body);
     const {animeTitle, leftYear, rightYear, episodes, format} = req.body;
-    const url = `https://hianime.to/search?keyword=${animeTitle}&sy=${leftYear}&ey=${rightYear}&sort=most_watched`;
+    const url = `https://hianime.to/search?keyword=${animeTitle}&sy=${leftYear}&ey=${rightYear}`;
 
     try {
         console.log(`Fetching animes for animeTitle: "${animeTitle}"`);
