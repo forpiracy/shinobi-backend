@@ -52,7 +52,15 @@ router.post('/search', async (req, res) => {
 
     // console.log(req.body);
     const {animeTitle, leftYear, rightYear, episodes, format} = req.body;
-    const url = `https://hianime.to/search?keyword=${animeTitle}&sy=${leftYear}&ey=${rightYear}`;
+    const animeTitleParts = animeTitle.split(' ');
+    let animeTitleHalf = animeTitle;
+    if(animeTitleParts.length>1){
+        const half = Math.ceil(animeTitleParts.length/2);
+        animeTitleParts.splice(-half, half);
+        animeTitleHalf = animeTitleParts.join(' ');
+    }
+    // console.log(animeTitleHalf);
+    const url = `https://hianime.to/search?keyword=${animeTitleHalf}&sy=${leftYear}&ey=${rightYear}`;
 
     try {
         console.log(`Fetching animes for animeTitle: "${animeTitle}"`);
