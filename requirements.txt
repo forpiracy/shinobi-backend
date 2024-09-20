@@ -1,4 +1,0 @@
-express
-axios
-cors
-cheerio
